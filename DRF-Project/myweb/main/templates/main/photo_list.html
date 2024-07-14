@@ -4,14 +4,18 @@
     </head>
     <body>
         <h1><a href="">사진 목록 페이지</a></h1>
+        <h3><a href="{% url 'photo_post' %}">New Photo</a></h3>
         <section>
             <!--사진 여러장을 photos라는 이름으로 가져와 반복문으로 하나의 photo로 처리해 데이터를 가져옴, 뷰에서 photos라는 데이터를 넘겨해야함-->
             {% for photo in photos %} <!--photo는 템플릿에서 사용할 변수, photos 데이터 담아올 변수임. 따라서 뷰에서도 photos로 설정-->
             <div>
                 <h2>
                     <a href="{% url 'photo_detail' pk=photo.pk %}">{{ photo.title }}</a> <!--url에 대한 뷰 설정-->>
+                    <!--href: a태그와 함께 사용, 클릭하면 지정된 url로 이동-->
                 </h2>
                 <img src="{{ photo.image }}" alt="{{ photo.title }}" width="300"/>
+                <!--src: img태그에서 이미지 지정할때 사용, 이미지 가져올 경로 지정-->
+                <!--alt: img태그가 로드되지 않을 때 대체 텍스트 지정, 시각장애인을 위한 스크린 리더가 읽어주는 텍스트로 사용-->
                 <p>{{ photo.author }}, {{ photo.price }}원</p>
             </div>
             {% endfor %}
