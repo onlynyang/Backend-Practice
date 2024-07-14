@@ -3,13 +3,14 @@
         <title>Main App</title>
     </head>
     <body>
-        <h1><a href="/">홈으로 돌아가기</a></h1>
+        <h1><a href="/">홈으로 돌아가기</a></h1> <!-- href="/": 루트페이지로 이동 -->
         <section>
             <div>
             <h2>New Photo</h2>
             <form method="POST"> <!--사용자가 데이터를 입력하여 서버로 보냄-->
                 {% csrf_token %} {{ form.as_p }} <!--csrf_token: 사용자 세션의 토큰과 요청으로 들어온 토큰을 비교, POST 요청의 보안을 지켜주는 도구-->
-                <!--form.as_p: 우리가 만들 form을 태그 형식으로 만들어줌-->
+                <!--CSRF 공격을 방지하기 위해 Django는 모든 POST 요청에 CSRF 토큰을 요구-->
+                <!--form.as_p: .as_p 메서드는 각 필드를 <p> 태그로 감싸서 표시-->
                 <button type="submit">완료!</button>
             </form>  
             </div>
