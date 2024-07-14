@@ -5,28 +5,16 @@
     <body>
         <h1><a href="">사진 목록 페이지</a></h1>
         <section>
+            <!--사진 여러장을 photos라는 이름으로 가져와 반복문으로 하나의 photo로 처리해 데이터를 가져옴, 뷰에서 photos라는 데이터를 넘겨해야함-->
+            {% for photo in photos %} <!--photo는 템플릿에서 사용할 변수, photos 데이터 담아올 변수임. 따라서 뷰에서도 photos로 설정-->
             <div>
                 <h2>
-                    <a href="">고냥이</a>
+                    <a href="{% url 'photo_detail' pk=photo.pk %}">{{ photo.title }}</a> <!--url에 대한 뷰 설정-->>
                 </h2>
-                <img
-                    src="https://img.animalplanet.co.kr/news/2022/10/14/700/z4s0p23t15uwry851crk.jpg"
-                    alt="고냥이"
-                    width="300"
-                />
-                <p>고냥이, 1000원</p>
+                <img src="{{ photo.image }}" alt="{{ photo.title }}" width="300"/>
+                <p>{{ photo.author }}, {{ photo.price }}원</p>
             </div>
-            <div>
-                <h2>
-                    <a href="">고냥이 2</a>
-                </h2>
-                <img
-                    src="https://img.animalplanet.co.kr/news/2022/10/14/700/z4s0p23t15uwry851crk.jpg"
-                    alt="고냥이"
-                    width="300"
-                />
-                <p>고냥이, 1000원</p>
-            </div>
+            {% endfor %}
         </section>
     </body>
 </html>

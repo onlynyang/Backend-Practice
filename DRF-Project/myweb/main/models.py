@@ -1,6 +1,7 @@
-from django.db import models # django.db 로 부터 models 가져옴
-                             # models: Django의 데이터베이스와 관련된 내용을 미리 작성해놓은 도구
-                             # 따라서 models.Model이라는 클래스를 상속받아서 그 기능과 필드 설정을 그대로 가져다 쓸 수 있는것
+from django.db import models
+# django.db 로 부터 models 가져옴
+# models: Django의 데이터베이스와 관련된 내용을 미리 작성해놓은 도구
+# 따라서 models.Model이라는 클래스를 상속받아서 그 기능과 필드 설정을 그대로 가져다 쓸 수 있는것
 
 # Create your models here.
 class Photo(models.Model): # models.Model을 상속받음
