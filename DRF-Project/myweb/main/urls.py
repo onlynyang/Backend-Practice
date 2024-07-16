@@ -8,4 +8,5 @@ urlpatterns = [
     path('photo/<int:pk>/', views.photo_detail, name='photo_detail'),
     # photo 뒤에 오는 정수 값을 pk라는 변수로 캡쳐 -> 캡쳐한 pk값을 뷰함수에 전달
     path('photo/new/', views.photo_post, name='photo_post'),
+    path('photo/<int:pk>/edit/', views.photo_edit, name='photo_edit'),
 ]
