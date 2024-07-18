@@ -19,6 +19,6 @@ assignees: ''
 >
 
 ## To do
-- [ ]
+>
 
 ## Note
